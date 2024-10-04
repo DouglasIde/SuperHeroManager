@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "tb_superheros")
+@Table(name = "tb_superhero")
 public class Superhero {
 
     @Id
@@ -42,4 +42,5 @@ public class Superhero {
     private String power;
 
     private String power2;
+
 }
