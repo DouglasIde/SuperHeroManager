@@ -40,4 +40,12 @@ public class SuperheroController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(superheroRepository.save(superhero));
     }
+
+    @PutMapping
+    public ResponseEntity<Superhero> put(@Valid @RequestBody Superhero superhero){
+        return superheroRepository.findById(superhero.getId())
+                .map(response -> ResponseEntity.status(HttpStatus.OK)
+                        .body(superheroRepository.save(superhero)))
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
 }
