@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/superhero")
@@ -47,5 +49,16 @@ public class SuperheroController {
                 .map(response -> ResponseEntity.status(HttpStatus.OK)
                         .body(superheroRepository.save(superhero)))
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        Optional<Superhero> superhero = superheroRepository.findById(id);
+        if(superhero.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        } else {
+            superheroRepository.deleteById(id);
+        }
     }
 }
