@@ -2,6 +2,7 @@ package com.challenge.superheroManager.controller;
 
 import com.challenge.superheroManager.model.Superhero;
 import com.challenge.superheroManager.repository.ISuperhero;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,5 +33,11 @@ public class SuperheroController {
     @GetMapping("/name/{name}")
     public ResponseEntity<List<Superhero>> getByName(@PathVariable String name) {
         return ResponseEntity.ok(superheroRepository.findAllByNameContainingIgnoreCase(name));
+    }
+
+    @PostMapping
+    public ResponseEntity<Superhero> post(@Valid @RequestBody Superhero superhero) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(superheroRepository.save(superhero));
     }
 }
