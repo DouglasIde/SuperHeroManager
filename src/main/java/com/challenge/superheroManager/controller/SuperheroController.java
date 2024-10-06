@@ -4,10 +4,7 @@ import com.challenge.superheroManager.model.Superhero;
 import com.challenge.superheroManager.repository.ISuperhero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +19,10 @@ public class SuperheroController {
     @GetMapping
     public ResponseEntity<List<Superhero>> getAll() {
         return ResponseEntity.ok(superheroRepository.findAll());
+    }
+
+    @GetMapping("/name/{name}")
+    public ResponseEntity<List<Superhero>> getByName(@PathVariable String name) {
+        return ResponseEntity.ok(superheroRepository.findAllByNameContainingIgnoreCase(name));
     }
 }
