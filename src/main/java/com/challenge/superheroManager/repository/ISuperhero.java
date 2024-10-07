@@ -9,4 +9,6 @@ import java.util.List;
 
 public interface ISuperhero extends JpaRepository<Superhero, Long> {
     public List<Superhero> findAllByNameContainingIgnoreCase(@Param("name")String name);
+    public List<Superhero> findAllByPowerContainingIgnoreCaseOrPower2ContainingIgnoreCase(@Param("power") String power,
+                                                                                          @Param("power2") String power2);
 }

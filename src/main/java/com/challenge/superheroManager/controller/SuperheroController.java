@@ -37,6 +37,15 @@ public class SuperheroController {
         return ResponseEntity.ok(superheroRepository.findAllByNameContainingIgnoreCase(name));
     }
 
+    @GetMapping("/superpower/{power}")
+    public ResponseEntity<List<Superhero>> getByPower(@PathVariable String power, String power2) {
+        return ResponseEntity.ok(superheroRepository.findAllByPowerContainingIgnoreCaseOrPower2ContainingIgnoreCase(
+                power, power2
+        ));
+    }
+
+
+
     @PostMapping
     public ResponseEntity<Superhero> post(@Valid @RequestBody Superhero superhero) {
         return ResponseEntity.status(HttpStatus.CREATED)
