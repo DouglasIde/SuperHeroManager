@@ -1,5 +1,6 @@
 package com.challenge.superheroManager.controller;
 
+import com.challenge.superheroManager.exception.SuperheroNotFoundException;
 import com.challenge.superheroManager.model.Superhero;
 import com.challenge.superheroManager.repository.ISuperhero;
 
@@ -30,7 +31,7 @@ public class SuperheroController {
     public ResponseEntity<Superhero> getById(@PathVariable Long id) {
         return superheroRepository.findById(id)
                 .map(response -> ResponseEntity.ok(response))
-                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+                .orElseThrow(() -> new SuperheroNotFoundException(id));
     }
 
     @GetMapping("/name/{name}")
