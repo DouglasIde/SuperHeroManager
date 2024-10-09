@@ -36,5 +36,26 @@ public class SwaggerConfig {
                     .url("https://github.com/DouglasIde"));
     }
 
+    @Bean
+    OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
+        return openApi -> {
+        openApi.getPaths().values().forEach(pathItem -> pathItem.readOperations()
+                .forEach(operation -> {
+                    ApiResponses apiResponses = operation.getResponses();
+
+                    apiResponses.addApiResponse("200", createApiResponse(""));
+                    apiResponses.addApiResponse("204", createApiResponse(""));
+                    apiResponses.addApiResponse("400", createApiResponse(""));
+                    apiResponses.addApiResponse("401", createApiResponse(""));
+                    apiResponses.addApiResponse("404", createApiResponse(""));
+                    apiResponses.addApiResponse("500", createApiResponse(""));
+                }));
+        };
+    }
+
+    private ApiResponse createApiResponse(String description) {
+        return new ApiResponse().description(description);
+    }
+
 
 }
