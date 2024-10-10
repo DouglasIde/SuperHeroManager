@@ -17,6 +17,11 @@
 <h1>📌Description</h1>
 <p>The API developed is a superhero manager, allowing the basic data of each hero to be entered manually. It doesn't use external APIs, in accordance with the rules of the challenge.</p>
 
+<h1>🤖Technologies</h1>
+<li><strong><a href="https://www.java.com/pt-BR/" target="_blank">Java</strong></li>
+<li><strong><a href="https://spring.io/projects/spring-boot" target="_blank">Spring Boot</strong></li>
+<li><strong><a href="https://swagger.io/" target="_blank">Swagger</strong></li>
+<li><strong><a href="https://www.docker.com/" target="_blank">Docker</strong></li>
 
 
 
