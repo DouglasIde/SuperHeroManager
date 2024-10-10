@@ -20,9 +20,19 @@
 <h1>🤖Technologies</h1>
 <li><strong><a href="https://www.java.com/pt-BR/" target="_blank">Java</strong></li>
 <li><strong><a href="https://spring.io/projects/spring-boot" target="_blank">Spring Boot</strong></li>
+  <li><strong><a href="https://www.mysql.com/" target="_blank">MySQL</strong></li>
 <li><strong><a href="https://swagger.io/" target="_blank">Swagger</strong></li>
 <li><strong><a href="https://www.docker.com/" target="_blank">Docker</strong></li>
 
+<h1>📁Branches</h1>
+<p>The branches were organized according to each daily challenge proposed by Alura. Deliveries took place daily over the 7 days allocated to the final project. Below is a breakdown of each day's progress, reflecting the responses to the challenges proposed:</p>
+<li><strong>Day 1</strong> : Branch with project start and MySQL database configuration.</li>
+<li><strong>Day 2</strong> : Branch with creation of model class and interface in repository.</li>
+<li><strong>Day 3</strong> : Branch with the complete CRUD in the Controller and with data validation.</li>
+<li><strong>Day 4</strong> : Branch with the JSON with the information of each superhero inside the database.</li>
+<li><strong>Day 5</strong> : Branch with the development of getters to search for superhero components along with the organization of HTTP request error exceptions.</li>
+<li><strong>Day 6</strong> : Branch with the finalization of the project with Swagger configurations for documentation and Docker for Deployment.</li>
+<li><strong>features</strong> : Branch for new features and code improvements.</li>
 
 
 
